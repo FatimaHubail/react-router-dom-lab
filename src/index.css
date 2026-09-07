@@ -1,46 +1,131 @@
+:root {
+  --kraft: #E8DCC4;
+  --paper: #FAF6EC;
+  --ink-navy: #1F3550;
+  --postmark-red: #B23A2F;
+  --verdigris: #4C6B5C;
+  --ink-black: #22201C;
+}
+
 body {
-  padding: 16px;
+  background: var(--kraft);
+  color: var(--ink-black);
+  font-family: 'IBM Plex Mono', monospace;
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-family: 'Zilla Slab', serif;
+  font-weight: 600;
+}
+
+nav {
+  background: var(--ink-navy);
+  padding: 14px 20px;
   display: flex;
-  flex-direction: column;
+  gap: 20px;
 }
 
-#root {
-  width: 100%;
-  height: 100%;
+nav a {
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 13px;
 }
 
-ul {
-  padding: 0;
-  display: flex;
-  list-style: none;
+nav a:hover {
+  text-decoration: underline;
 }
 
-li {
-  margin-right: 16px;
+.mailbox-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  border-top: 1px solid var(--ink-black);
+  border-left: 1px solid var(--ink-black);
+  max-width: 640px;
 }
 
 .mail-box {
-  border: 2px solid white;
-  padding: 20px;
+  aspect-ratio: 1;
+  background: var(--paper);
+  border-right: 1px solid var(--ink-black);
+  border-bottom: 1px solid var(--ink-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ink-navy);
+  text-decoration: none;
+}
+
+.mail-box:hover {
+  background: var(--kraft);
+}
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 20px;
 }
 
 form {
   display: flex;
   flex-direction: column;
+  gap: 14px;
+  max-width: 400px;
 }
 
-label,
-button {
-  margin: 16px 0px;
-  font-weight: bold;
+form label {
+  font-size: 12px;
+  color: var(--verdigris);
 }
 
-input,
-select,
-textarea {
-  padding: 8px;
+form input,
+form select,
+form textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed var(--verdigris);
+  padding: 6px 2px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--ink-black);
 }
 
-button {
-  background-color: #535bf2;
+form input:focus,
+form select:focus,
+form textarea:focus {
+  outline: none;
+  border-bottom: 1px solid var(--postmark-red);
+}
+
+button[type="submit"] {
+  background: var(--postmark-red);
+  color: var(--paper);
+  border: none;
+  border-radius: 2px;
+  padding: 10px 18px;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.mailbox-details {
+  background: var(--paper);
+  border: 1px solid var(--ink-black);
+  padding: 18px 20px;
+  max-width: 480px;
+}
+
+.mailbox-details .letter {
+  border-top: 1px solid var(--ink-black);
+  padding-top: 12px;
+  margin-top: 14px;
+}
+
+.mailbox-details .letter p:first-child {
+  font-size: 11px;
+  color: var(--verdigris);
 }

@@ -19,7 +19,7 @@ const LetterForm = ({mailboxes, addLetter}) => {
             ...formData,
             mailboxId: Number(formData.mailboxId),
         };
-        props.addLetter(newLetter);
+        addLetter(newLetter);
         navigate(`/mailboxes/${newLetter.mailboxId}`);
     };
 
@@ -35,7 +35,7 @@ const LetterForm = ({mailboxes, addLetter}) => {
                     onChange={handleChange}
                 >
                     <option value="" disabled>Select a mailbox</option>
-                    {props.mailboxes.map((mailbox) => (
+                    {mailboxes.map((mailbox) => (
                         <option key={mailbox._id} value={mailbox._id}>
                             {mailbox._id}
                         </option>
